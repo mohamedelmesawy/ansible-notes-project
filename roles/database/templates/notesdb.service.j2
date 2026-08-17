@@ -1,0 +1,14 @@
+[Unit]
+Description=Notes Database API
+After=network.target
+
+[Service]
+User=notesdb
+Group=notesdb
+WorkingDirectory=/opt/notesdb
+ExecStart=/opt/notesdb/venv/bin/python /opt/notesdb/db_api.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

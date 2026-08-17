@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ansible Notes App</title>
+</head>
+
+<body>
+
+<h1>Ansible Notes App</h1>
+
+<form method="POST" action="/add">
+    <textarea
+        name="content"
+        placeholder="Write your note..."
+        required
+    ></textarea>
+
+    <br><br>
+
+    <button type="submit">
+        Save Note
+    </button>
+</form>
+
+<hr>
+
+{% for note in notes %}
+
+    <p>
+        <strong>{{ note.created_at }}</strong>
+        <br>
+        {{ note.content }}
+    </p>
+
+    <hr>
+
+{% else %}
+
+    <p>No notes yet.</p>
+
+{% endfor %}
+
+</body>
+</html>

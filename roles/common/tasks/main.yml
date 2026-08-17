@@ -1,0 +1,12 @@
+---
+- name: Update package cache
+  dnf:
+    update_cache: yes
+
+- name: Install common packages
+  dnf:
+    name:
+      - python3
+      - python3-pip
+      - git
+    state: present
