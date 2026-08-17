@@ -1,2 +1,5 @@
 ---
-# handlers file for web
+- name: Restart notesapp
+  systemd:
+    name: notesapp
+    state: restarted

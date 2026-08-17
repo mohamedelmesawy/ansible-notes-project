@@ -67,6 +67,7 @@
     owner: notesapp
     group: notesapp
     mode: '0644'
+  notify: Restart notesapp
 
 - name: Copy web requirements
   copy:
@@ -91,6 +92,7 @@
     owner: notesapp
     group: notesapp
     mode: '0644'
+  notify: Restart notesapp
 
 - name: Create Python virtual environment
   command:
@@ -118,6 +120,7 @@
     owner: notesapp
     group: notesapp
     mode: '0600'
+  notify: Restart notesapp
 
 - name: Install web systemd service
   template:
@@ -148,7 +151,7 @@
     path: /etc/nginx/nginx.conf
     regexp: 'listen\s+80\s+default_server;'
     replace: 'listen 80;'
-    
+
 - name: Deploy nginx configuration
   copy:
     src: notesapp-nginx.conf
